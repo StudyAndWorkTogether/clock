@@ -7,5 +7,6 @@
 
 ## Create a clock UI
 
+1. Show Date, hour, minute and second
 
 ## User can choose Time Zone
