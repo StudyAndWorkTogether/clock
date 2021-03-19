@@ -1,8 +1,4 @@
-// const hour = document.getElementById('hour')
-// const minute = document.getElementById('minute')
-// const second = document.getElementById('second')
-
-setInterval(function(){ 
-  //this code runs every second 
-  document.getElementById("clock").innerHTML = new Date().toLocaleString()
+setInterval(function(){
+  const timeZone = document.getElementById('time-zone').value
+  document.getElementById("clock").innerHTML = new Date().toLocaleString('en-US', { timeZone: timeZone})
 }, 1000);
