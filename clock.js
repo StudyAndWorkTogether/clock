@@ -4,7 +4,16 @@ function getCity(){
   document.getElementById('city').innerHTML = cityName
 }
 
-setInterval(function(){
+function clock(){
   const timeZone = document.getElementById('time-zone').value
   document.getElementById("clock").innerHTML = new Date().toLocaleString('en-US', { timeZone: timeZone })
-}, 1000);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  getCity()
+  clock()
+}, false)
+
+setInterval(function(){
+  clock()
+}, 1000)
