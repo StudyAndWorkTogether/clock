@@ -6,9 +6,9 @@
   <title>Brandon's Clock</title>
 </head>
 <body>
-  <h1>Hello~ This is my clock</h1>
+  <h1>Hello~ This is clock of <span id="city">New York</span></h1>
   <h2 id="clock"></h2>
-  <select name="time" id="time-zone">
+  <select name="time" id="time-zone" onchange="getCity()">
     <option value="America/New_York">New York</option>
     <option value="Asia/Taipei">Taipei</option>
     <option value="Asia/Tokyo">Tokyo</option>
