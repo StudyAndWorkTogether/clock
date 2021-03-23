@@ -1,19 +1,28 @@
-function getCity(){
+let clockID
+
+function displayTime(){
   const optionIndex = document.getElementById('time-zone').options.selectedIndex
   const cityName = document.getElementById('time-zone').options[optionIndex].label
-  document.getElementById('city').innerHTML = cityName
-}
-
-function clock(){
   const timeZone = document.getElementById('time-zone').value
+  document.getElementById('city').innerHTML = cityName
   document.getElementById("clock").innerHTML = new Date().toLocaleString('en-US', { timeZone: timeZone })
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  getCity()
-  clock()
-}, false)
+function runningClock() {
+  setInterval(function(){
+    displayTime()
+  }, 1000)
+}
 
-setInterval(function(){
-  clock()
-}, 1000)
+function resetClock(){
+  clearInterval(clockID)
+  displayTime()
+  clockID = setInterval(function(){
+    displayTime()
+  }, 1000)
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  displayTime()
+  runningClock()
+}, false)
