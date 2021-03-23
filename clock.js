@@ -17,9 +17,7 @@ function runningClock() {
 function resetClock(){
   clearInterval(clockID)
   displayTime()
-  clockID = setInterval(function(){
-    displayTime()
-  }, 1000)
+  clockID = runningClock()
 }
 
 document.addEventListener('DOMContentLoaded', function() {
