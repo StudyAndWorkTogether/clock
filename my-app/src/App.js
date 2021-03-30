@@ -8,26 +8,22 @@ function App() {
     {label: 'New York', value: 'America/New_York'},
     {label: 'Taipei', value:'Asia/Taipei'},
     {label: 'Tokyo', value:'Asia/Tokyo'},
-    {label: 'Los Angele', value:'America/Los_Angeles'},
+    {label: 'Los Angeles', value:'America/Los_Angeles'},
     {label: 'Singapore', value:'Asia/Singapore'}
   ]
 
-  // setInterval(function(){
-  //   setDate(new Date().toLocaleString())
-  // }, 1000)
+  const handleChange = (event) => {
+    setIndex(event.target.options.selectedIndex)
+    setTimeZone(event.target.value)
+  };
 
   useEffect(() => {
+    setDate(new Date().toLocaleString('en-US', { timeZone: timeZone }))
     let clock = setInterval(() => {
       setDate(new Date().toLocaleString('en-US', { timeZone: timeZone }))
     }, 1000);
-    return () => clearInterval(clock);
-  }, [date, timeZone]);
-
-  const handleChange = (option) => {
-    setIndex(option.target.options.selectedIndex)
-    setTimeZone(option.target.value)
-    setDate(new Date().toLocaleString('en-US', { timeZone: timeZone }))
-  };
+    return () => clearInterval(clock)
+  }, [timeZone]);
 
   return (
     <div className="App">
